@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Move.gd" type="Script" id=1]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 9, 5 )
+
+[sub_resource type="SpatialMaterial" id=5]
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.0
+
+[sub_resource type="SphereMesh" id=7]
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.870588, 0.729412, 0.180392, 1 )
+metallic = 0.5
+metallic_specular = 0.75
+roughness = 0.2
+
+[sub_resource type="SphereMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0, 0.705882, 1, 0.345098 )
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.2
+refraction_enabled = true
+refraction_scale = 0.05
+refraction_texture_channel = 0
+
+[node name="地面" type="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0378933, 0.0214367, -0.0254569 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 5 )
+
+[node name="方块" type="MeshInstance" parent="."]
+transform = Transform( 1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 1.75, 1.05, 0 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
+
+[node name="球" type="MeshInstance" parent="."]
+transform = Transform( 1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -2, 1.05, 0 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 6 )
+
+[node name="方向光" type="DirectionalLight" parent="."]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 3, 0 )
+shadow_enabled = true
+
+[node name="摄像机" type="Camera" parent="."]
+transform = Transform( 0.941139, 0.157898, -0.298875, 0, 0.884191, 0.467125, 0.338021, -0.43963, 0.832146, -2.3076, 3.60665, 6.42495 )
+script = ExtResource( 1 )
