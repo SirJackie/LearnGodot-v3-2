@@ -130,37 +130,37 @@ if Input.is_action_pressed("L"):
 
 ## 高DPI支持
 
-![1696130379034](LearnGodot.assets/1696130379034.png)
+![1696130379034](README.assets/1696130379034.png)
 
-![1696130411235](LearnGodot.assets/1696130411235.png)
+![1696130411235](README.assets/1696130411235.png)
 
 ## 导出到安卓平台
 
 直接导出会报错：
 
-![1696131029931](LearnGodot.assets/1696131029931.png)
+![1696131029931](README.assets/1696131029931.png)
 
 2. 打开Editor - Editor Settings，在左边栏向下滚动，找到Export下面的Android选项，
-    会发现`ADB、Jarsigner、Debug Keystore`没有填上，接下来我们要一一填上。
+   会发现`ADB、Jarsigner、Debug Keystore`没有填上，接下来我们要一一填上。
 
-2. 在`ADB`填上`你的解压路径\ADB\adb.exe`
+3. 在`ADB`填上`你的解压路径\ADB\adb.exe`
 
-3. 在`Jarsigner`填上`你的解压路径\JDK\bin\jarsigner.exe`
+4. 在`Jarsigner`填上`你的解压路径\JDK\bin\jarsigner.exe`
 
-4. `Debug Keystore`需要自己生成，生成方式如下：
+5. `Debug Keystore`需要自己生成，生成方式如下：
 
-    - Win+R打开运行提示框，输入cmd回车
+   - Win+R打开运行提示框，输入cmd回车
 
-    - 在弹出来的cmd窗口中输入命令：`cd /d 你的解压路径\JDK\bin`
+   - 在弹出来的cmd窗口中输入命令：`cd /d 你的解压路径\JDK\bin`
 
-    - 运行命令：
+   - 运行命令：
 
-        ```
-        keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -keystore debug.keystore -storepass android -dname "CN=Android Debug,O=Android,C=US" -validity 9999 -deststoretype pkcs12
-        ```
+     ```
+     keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -keystore debug.keystore -storepass android -dname "CN=Android Debug,O=Android,C=US" -validity 9999 -deststoretype pkcs12
+     ```
 
-5. 点击“项目-导出...”，在“预设”旁边点“添加...”，然后点Android，就添加了一个安卓导出预设。
+6. 点击“项目-导出...”，在“预设”旁边点“添加...”，然后点Android，就添加了一个安卓导出预设。
 
-6. 点“导出项目”，选择你要导出的路径，然后点“保存”，即可。
+7. 点“导出项目”，选择你要导出的路径，然后点“保存”，即可。
 
-7. 注意！一定要勾上左下角的“使用调试导出”，否则导出失败！
+8. 注意！一定要勾上左下角的“使用调试导出”，否则导出失败！
